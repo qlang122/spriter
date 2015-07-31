@@ -37,7 +37,7 @@ public class Java2DTest extends JFrame{
 	public Java2DTest(){
 	    String xmlSCML = null;
 	    try {
-	        xmlSCML = new String(Files.readAllBytes(Paths.get("C:\\Users\\trixt_000\\Desktop\\player\\player2.scml")));
+	        xmlSCML = new String(Files.readAllBytes(Paths.get("assets/monster/basic_002.scml")));
 	    } catch (IOException ex) {
 	        Logger.getLogger(LwjglTest.class.getName()).log(Level.SEVERE, null, ex);
 	    }
@@ -56,7 +56,7 @@ public class Java2DTest extends JFrame{
 				return null;
 			}
 		};
-		this.loader.load("C:\\Users\\trixt_000\\Desktop\\player");
+		this.loader.load("assets/monster");
 		
 		MainLoop loop = new MainLoop();
 		loop.setDoubleBuffered(true);

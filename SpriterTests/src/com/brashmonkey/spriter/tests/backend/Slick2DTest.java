@@ -35,7 +35,7 @@ public class Slick2DTest extends BasicGame{
     public void init(final GameContainer gc) throws SlickException {
         String xmlSCML = null;
         try {
-            xmlSCML = new String(Files.readAllBytes(Paths.get("C:\\Users\\trixt_000\\Desktop\\player\\player2.scml")));
+            xmlSCML = new String(Files.readAllBytes(Paths.get("assets/monster/basic_002.scml")));
         } catch (IOException ex) {
             Logger.getLogger(LwjglTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,7 +58,7 @@ public class Slick2DTest extends BasicGame{
     		
     	};
     	
-    	loader.load("C:\\Users\\trixt_000\\Desktop\\player");
+    	loader.load("assets/monster");
     	
     	this.drawer = new Drawer<Image>(loader){
 			@Override
