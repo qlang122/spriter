@@ -514,8 +514,8 @@ public class XmlReader {
 					buffer.append('\n');
 				}
 				if (children != null) {
-					for (Element child : children) {
-						buffer.append(child.toString(childIndent));
+					for (int i = 0; i < children.size(); i++) {
+						buffer.append(children.get(i).toString(childIndent));
 						buffer.append('\n');
 					}
 				}
