@@ -17,7 +17,8 @@ public class LibGdxAtlasLoader extends Loader<Sprite>{
 		super(data);
 		this.atlas = new TextureAtlas(atlas);
 		Array<AtlasRegion> array = this.atlas.getRegions();
-		for(AtlasRegion region: array){
+		for(int i = 0; i < array.size; i++){
+			AtlasRegion region = array.get(i);
 			if(region.index != -1) region.name = region.name+indexPrefix+region.index;
 		}
 	}
