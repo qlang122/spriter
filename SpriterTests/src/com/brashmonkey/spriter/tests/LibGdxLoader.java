@@ -1,5 +1,6 @@
 package com.brashmonkey.spriter.tests;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -50,7 +51,13 @@ public class LibGdxLoader extends Loader<Sprite> implements Disposable{
 	@Override
 	protected Sprite loadResource(FileReference ref) {
 		FileHandle f;
-		String path = super.root+"/"+data.getFile(ref).name;
+		String pathPrefix;
+		if(super.root == null || super.root.equals("")) {
+			pathPrefix = "";
+		} else {
+			pathPrefix = super.root + File.separator;
+		}
+		String path = pathPrefix + data.getFile(ref).name;
 		switch(Gdx.app.getType()){
 		case iOS: f = Gdx.files.absolute(path); break;
 		default: f = Gdx.files.internal(path); break;
