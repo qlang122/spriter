@@ -138,9 +138,10 @@ public class SCMLReader {
 			Element frames = info.getChildByName("frames");
 			if(frames == null) continue;
 			ArrayList<Element> frameIndices = frames.getChildrenByName("i");
-			for(Element index: frameIndices){
+			for (int i1 = 0; i1 < frameIndices.size(); i1++) {
+				Element index = frameIndices.get(i1);
 				int folder = index.getInt("folder", 0);
-				int file =  index.getInt("file", 0);
+				int file = index.getInt("file", 0);
 				objInfo.frames.add(new FileReference(folder, file));
 			}
 		}
@@ -157,9 +158,10 @@ public class SCMLReader {
 			Entity.CharacterMap charMap = new Entity.CharacterMap(map.getInt("id"), map.getAttribute("name", "charMap"+i));
 			entity.addCharacterMap(charMap);
 			ArrayList<Element> mappings = map.getChildrenByName("map");
-			for(Element mapping: mappings){
+			for (int i1 = 0; i1 < mappings.size(); i1++) {
+				Element mapping = mappings.get(i1);
 				int folder = mapping.getInt("folder");
-				int file =  mapping.getInt("file");
+				int file = mapping.getInt("file");
 				charMap.put(new FileReference(folder, file),
 						new FileReference(mapping.getInt("target_folder", folder), mapping.getInt("target_file", file)));
 			}
@@ -214,15 +216,17 @@ public class SCMLReader {
 	 * @param key the mainline key
 	 */
 	protected void loadRefs(ArrayList<Element> objectRefs, ArrayList<Element> boneRefs, Mainline.Key key){
-		for(Element e: boneRefs){
-			BoneRef boneRef = new BoneRef(e.getInt("id"),e.getInt("timeline"),
-							e.getInt("key"), key.getBoneRef(e.getInt("parent", -1)));
+		for (int i = 0; i < boneRefs.size(); i++) {
+			Element e = boneRefs.get(i);
+			BoneRef boneRef = new BoneRef(e.getInt("id"), e.getInt("timeline"),
+					e.getInt("key"), key.getBoneRef(e.getInt("parent", -1)));
 			key.addBoneRef(boneRef);
 		}
 
-		for(Element o: objectRefs){
-			ObjectRef objectRef = new ObjectRef(o.getInt("id"),o.getInt("timeline"),
-							o.getInt("key"), key.getBoneRef(o.getInt("parent", -1)), o.getInt("z_index",0));
+		for (int i = 0; i < objectRefs.size(); i++) {
+			Element o = objectRefs.get(i);
+			ObjectRef objectRef = new ObjectRef(o.getInt("id"), o.getInt("timeline"),
+					o.getInt("key"), key.getBoneRef(o.getInt("parent", -1)), o.getInt("z_index", 0));
 			key.addObjectRef(objectRef);
 		}
 		Arrays.sort(key.objectRefs);
