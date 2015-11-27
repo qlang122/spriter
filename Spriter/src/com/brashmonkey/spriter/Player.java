@@ -67,14 +67,16 @@ public class Player {
 	 * This means the current time gets increased by {@link #speed} and is applied to the current animation.
 	 */
 	public void update(){
-		for(PlayerListener listener: listeners)
-			listener.preProcess(this);
+		for (int i = 0; i < listeners.size(); i++) {
+			listeners.get(i).preProcess(this);
+		}
 		if(dirty) this.updateRoot();
 		this.animation.update(time, root);
 		this.currentKey = this.animation.currentKey;
 		if(prevKey != currentKey){
-			for(PlayerListener listener: listeners)
-				listener.mainlineKeyChanged(prevKey, currentKey);
+			for (int i = 0; i < listeners.size(); i++) {
+				listeners.get(i).mainlineKeyChanged(prevKey, currentKey);
+			}
 			prevKey = currentKey;
 		}
 		if(copyObjects){
@@ -86,12 +88,14 @@ public class Player {
 			tweenedKeys = animation.tweenedKeys;
 			unmappedTweenedKeys = animation.unmappedTweenedKeys;
 		}
-		
-		for(Attachment attach: attachments)
-			attach.update();
-		
-		for(PlayerListener listener: listeners)
-			listener.postProcess(this);
+
+		for (int i = 0; i < attachments.size(); i++) {
+			attachments.get(i).update();
+		}
+
+		for (int i = 0; i < listeners.size(); i++) {
+			listeners.get(i).postProcess(this);
+		}
 		this.increaseTime();
 	}
 	
@@ -108,12 +112,14 @@ public class Player {
 		time += speed;
 		if(time > animation.length){
 			time = time-animation.length;
-			for(PlayerListener listener: listeners)
-				listener.animationFinished(animation);
+			for (int i = 0; i < listeners.size(); i++) {
+				listeners.get(i).animationFinished(animation);
+			}
 		}
 		if(time < 0){
-			for(PlayerListener listener: listeners)
-				listener.animationFinished(animation);
+			for (int i = 0; i < listeners.size(); i++) {
+				listeners.get(i).animationFinished(animation);
+			}
 			time += animation.length;
 		}
 	}
@@ -594,8 +600,9 @@ public class Player {
 		this.time = 0;
 		this.update();
 		this.time = tempTime;
-		for(PlayerListener listener: listeners)
-			listener.animationChanged(prevAnim, animation);
+		for (int i = 0; i < listeners.size(); i++) {
+			listeners.get(i).animationChanged(prevAnim, animation);
+		}
 	}
 	
 	/**
