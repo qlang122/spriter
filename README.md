@@ -4,6 +4,8 @@ A Generic Java library for Spriter animation files.
 
 [Checkout the features video (note: at the moment there are more features than in this video!).](http://www.youtube.com/watch?v=i_OxqopvMH0)
 
+For people who do not have a single idea how to get a whole project running, [here](https://github.com/blueacorn/libgdx-spriter-demo) is a very detailed tutorial on how to setup a LibGDX project from nothing to a working Spriter showcase.
+
 Index
 -----
 *  [Basic usage](#basic-usage)
