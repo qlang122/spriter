@@ -1,4 +1,7 @@
-/Spriter/bin/
-/Spriter/.settings/
-/SpriterTests/bin/
-/SpriterTests/.settings/
+.gradle
+.idea
+build
+gradle
+out
+gradlew
+gradlew.bat
