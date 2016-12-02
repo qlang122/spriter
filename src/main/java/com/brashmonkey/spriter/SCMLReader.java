@@ -43,14 +43,7 @@ public class SCMLReader {
 	 */
 	protected Data load(String xml){
 		XmlReader reader = new XmlReader();
-		Element root = reader.parse(xml);
-		ArrayList<Element> folders = root.getChildrenByName("folder");
-		ArrayList<Element> entities = root.getChildrenByName("entity");
-		data = new Data(root.get("scml_version"), root.get("generator"),root.get("generator_version"),
-				folders.size(),	entities.size());
-		loadFolders(folders);
-		loadEntities(entities);
-		return data;
+		return load(reader.parse(xml));
 	}
 	
 	/**
@@ -59,21 +52,31 @@ public class SCMLReader {
 	 * @return the built data
 	 */
 	protected Data load(InputStream stream){
-		XmlReader reader = new XmlReader();
 		try {
-			Element root = reader.parse(stream);
-			ArrayList<Element> folders = root.getChildrenByName("folder");
-			ArrayList<Element> entities = root.getChildrenByName("entity");
-			data = new Data(root.get("scml_version"), root.get("generator"),root.get("generator_version"),
-					folders.size(),	entities.size());
-			loadFolders(folders);
-			loadEntities(entities);
+			XmlReader reader = new XmlReader();
+			return load(reader.parse(stream));
 		} catch (IOException e) {
 			e.printStackTrace();
+			return null;
 		}
+	}
+
+	/**
+	 * Reads the data from the given root element, i.e. the spriter_data node.
+	 * @param root
+	 * @return
+	 */
+	protected Data load(Element root) {
+		ArrayList<Element> folders = root.getChildrenByName("folder");
+		ArrayList<Element> entities = root.getChildrenByName("entity");
+		data = new Data(root.get("scml_version"), root.get("generator"), root.get("generator_version"),
+						Data.PixelMode.get(root.getInt("pixel_mode", 0)),
+						folders.size(),	entities.size());
+		loadFolders(folders);
+		loadEntities(entities);
 		return data;
 	}
-	
+
 	/**
 	 * Iterates through the given folders and adds them to the current {@link Data} object.
 	 * @param folders a list of folders to load

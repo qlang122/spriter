@@ -4,21 +4,43 @@ package com.brashmonkey.spriter;
 /**
  * Represents all the data which necessary to animate a Spriter generated SCML file.
  * An instance of this class holds {@link Folder}s and {@link Entity} instances.
- * Specific {@link Folder} and {@link Entity} instances can be accessed via the corresponding methods, i.e. getEntity() and getFolder().
+ * Specific {@link Folder} and {@link Entity} instances can be accessed via the corresponding methods, i.e. getEntity()
+ * and getFolder().
  * @author Trixt0r
  *
  */
 public class Data {
 
+    /**
+     * Represents the rendering mode stored in the spriter data root.
+     */
+    public enum PixelMode {
+        NONE, PIXEL_ART;
+
+        /**
+         * @param mode
+         * @return The pixel mode for the given int value. Default is {@link NONE}.
+         */
+        public static PixelMode get(int mode) {
+            switch (mode) {
+                case 1: return PIXEL_ART;
+                default: return NONE;
+            }
+        }
+    }
+
 	final Folder[] folders;
     final Entity[] entities;
     private int folderPointer = 0, entityPointer = 0;
     public final String scmlVersion, generator, generatorVersion;
+    public final PixelMode pixelMode;
+
     
-    Data(String scmlVersion, String generator, String generatorVersion, int folders, int entities){
+    Data(String scmlVersion, String generator, String generatorVersion, PixelMode pixelMode, int folders, int entities){
     	this.scmlVersion = scmlVersion;
     	this.generator = generator;
     	this.generatorVersion = generatorVersion;
+    	this.pixelMode = pixelMode;
     	this.folders = new Folder[folders];
     	this.entities = new Entity[entities];
     }
@@ -131,9 +153,15 @@ public class Data {
     public File getFile(FileReference ref){
     	return this.getFile(ref.folder, ref.file);
     }
-    
+
+    /**
+     * @return The string representation of this spriter data
+     */
     public String toString(){
-    	String toReturn = getClass().getSimpleName()+"|[Version: "+scmlVersion+", Generator: "+generator+" ("+generatorVersion+")]";
+    	String toReturn = getClass().getSimpleName() +
+                "|[Version: " + scmlVersion +
+                ", Generator: " + generator +
+                " (" + generatorVersion + ")]";
     	for(Folder folder: folders)
     		toReturn += "\n"+folder;
     	for(Entity entity: entities)
