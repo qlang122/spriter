@@ -1,0 +1,175 @@
+{
+	"frames": {
+		"0.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 768,
+				"y": 0
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"1.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"2.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 768,
+				"y": 224
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"3.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 256,
+				"y": 224
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"4.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 512,
+				"y": 224
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"5.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 512,
+				"y": 0
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"6.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 224
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		},
+		"7.png": {
+			"frame": {
+				"h": 224,
+				"w": 256,
+				"x": 256,
+				"y": 0
+			},
+			"rotated": "false",
+			"sourceSize": {
+				"h": 224,
+				"w": 256
+			},
+			"spriteSourceSize": {
+				"h": 224,
+				"w": 256,
+				"x": 0,
+				"y": 0
+			},
+			"trimmed": "true"
+		}
+	},
+	"meta": {
+		"app": "Spriter",
+		"format": "RGBA8888",
+		"image": "test.png",
+		"scale": 1,
+		"size": {
+			"h": 448,
+			"w": 1024
+		},
+		"version": "r11"
+	}
+}
