@@ -41,15 +41,15 @@ public class SCONReaderTest {
     @Test
     public void should_be_as_fast_as_scml_reader () throws IOException {
         long sconBegin = System.nanoTime();
-            SCONReader sconReader = new SCONReader(new FileInputStream(new File("src/test/resources/test.scon")));
+            SCONReader sconReader = new SCONReader(new FileInputStream(new File("src/test/resources/Roy/roy.scon")));
             Data sconData = sconReader.getData();
         long sconEnd = System.nanoTime();
 
         long scmlBegin = System.nanoTime();
-            SCMLReader scmlReader = new SCMLReader(new FileInputStream(new File("src/test/resources/test.scml")));
+            SCMLReader scmlReader = new SCMLReader(new FileInputStream(new File("src/test/resources/Roy/roy.scml")));
             Data scmlData = scmlReader.getData();
         long scmlEnd = System.nanoTime();
-
+        
         long sconTime = sconEnd - sconBegin;
         long scmlTime = scmlEnd - scmlBegin;
 
