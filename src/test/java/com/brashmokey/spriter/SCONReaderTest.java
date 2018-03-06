@@ -49,7 +49,7 @@ public class SCONReaderTest {
             SCMLReader scmlReader = new SCMLReader(new FileInputStream(new File("src/test/resources/Roy/roy.scml")));
             Data scmlData = scmlReader.getData();
         long scmlEnd = System.nanoTime();
-        
+
         long sconTime = sconEnd - sconBegin;
         long scmlTime = scmlEnd - scmlBegin;
 
