@@ -45,8 +45,7 @@ public class SCONReader {
 	 * @return the built data
 	 */
 	protected Data load(String json){
-		JsonReader reader = new JsonReader();
-		return load(reader.parse(json));
+		return load(JsonReader.parse(json));
 	}
 	
 	/**
@@ -56,8 +55,7 @@ public class SCONReader {
 	 */
 	protected Data load(InputStream stream){
 		try {
-			JsonReader reader = new JsonReader();
-			return load(reader.parse(stream));
+			return load(JsonReader.parse(stream));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -280,7 +278,7 @@ public class SCONReader {
 			Point pivot = new Point(obj.optFloat("pivot_x", 0f), obj.optFloat("pivot_y", (timeline.objectInfo.type == ObjectType.Bone)? .5f:1f));
 			float angle = obj.optFloat("angle", 0f), alpha = 1f;
 			int folder = -1, file = -1;
-			if(obj.getString("name").equals("object")){
+			if(obj.optString("name", "no_name_"+i).equals("object")){
 				if(timeline.objectInfo.type == ObjectType.Sprite){
 					alpha = obj.optFloat("a", 1f);
 					folder = obj.optInt("folder", -1);
@@ -291,7 +289,7 @@ public class SCONReader {
 				}
 			}
 			Timeline.Key.Object object;
-			if(obj.getString("name").equals("bone")) object = new Timeline.Key.Object(position, scale, pivot, angle, alpha, new FileReference(folder, file));
+			if(obj.optString("name", "no_name_"+i).equals("bone")) object = new Timeline.Key.Object(position, scale, pivot, angle, alpha, new FileReference(folder, file));
 			else object = new Timeline.Key.Object(position, scale, pivot, angle, alpha, new FileReference(folder, file));
 			key.setObject(object);
 			timeline.addKey(key);
