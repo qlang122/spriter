@@ -36,6 +36,11 @@ Create a [SCMLReader](https://github.com/Trixt0r/spriter/blob/master/Spriter/src
 SCMLReader reader = new SCMLReader("Path to your SCML file");
 Data data = reader.getData();
 ```
+Or create a [SCONReader](https://github.com/Trixt0r/spriter/blob/master/Spriter/src/com/brashmonkey/spriter/SCONReader.java) instance which takes care of parsing the SCON file and creating a new [Data](https://github.com/Trixt0r/spriter/blob/master/Spriter/src/com/brashmonkey/spriter/Data.java) containing all necessary data to play back an animation of an entity:
+```
+SCONReader reader = new SCONReader("Path to your SCON file");
+Data data = reader.getData();
+```
 At this point you gathered all animation data and you could create a [Player](https://github.com/Trixt0r/spriter/blob/master/Spriter/src/com/brashmonkey/spriter/Player.java) instance:
 ```
 Player yourPlayer = new Player(data.getEntity(entityIndex));

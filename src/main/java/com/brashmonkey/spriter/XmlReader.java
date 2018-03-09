@@ -552,7 +552,7 @@ public class XmlReader {
 		}
 
 		/** @param name the name of the children
-		 * @return the children with the given name or an empty {@link Array} */
+		 * @return the children with the given name or an empty {@link ArrayList} */
 		public ArrayList<Element> getChildrenByName (String name) {
 			ArrayList<Element> result = new ArrayList<Element>();
 			if (children == null) return result;
@@ -564,7 +564,7 @@ public class XmlReader {
 		}
 
 		/** @param name the name of the children
-		 * @return the children with the given name or an empty {@link Array} */
+		 * @return the children with the given name or an empty {@link ArrayList} */
 		public ArrayList<Element> getChildrenByNameRecursively (String name) {
 			ArrayList<Element> result = new ArrayList<Element>();
 			getChildrenByNameRecursively(name, result);

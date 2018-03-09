@@ -245,7 +245,7 @@ public class SCMLReader {
 		for(int i = 0; i< timelines.size(); i++){
 			Element t = timelines.get(i);
 			ArrayList<Element> keys = timelines.get(i).getChildrenByName("key");
-			String name = t.get("name");
+			String name = t.get("name", "no_name_"+i);
 			ObjectType type = ObjectType.getObjectInfoFor(t.get("object_type", "sprite"));
 			ObjectInfo info = entity.getInfo(name);
 			if(info == null) info = new ObjectInfo(name, type, new Dimension(0,0));
