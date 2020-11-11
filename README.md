@@ -241,12 +241,12 @@ Attachment attach = new Player.Attachment(handObject) {
   protected void setScale(float xscale, float yscale) {
   	playerToAttach.setScale(Math.max(xscale, yscale));
   }
-  
+
   @Override
   protected void setPosition(float x, float y) {
   	playerToAttach.setPosition(x, y);
   }
-  
+
   @Override
   protected void setAngle(float angle) {
   	playerToAttach.setAngle(angle);
@@ -262,12 +262,12 @@ To see it in action have a look at [AttachmentTest](https://github.com/Trixt0r/s
 Character maps
 --------------
 Applying character maps on the fly is as simple as in Spriter.
-First get a character map, then assign it to a player:
+First get a character map, then assign it to a player in an array:
 ```
 CharacterMap map = player.getEntity().getCharacterMap("name of your char map");
-player.characterMap = map;
+player.characterMaps = new CharacterMap[]{map};
 ```
-That's it. To remove the character map, just set `player.characterMap = null` and you will be fine.
+That's it. To remove the character map, just set `player.characterMaps = null` and you will be fine.
 
 [Back to top](#index)
 
