@@ -1,10 +1,12 @@
 group 'com.brashmonkey.spriter'
 version '1.0.1'
 
-apply plugin: 'maven-publish'
+apply plugin: 'maven'
 apply plugin: 'java'
 
 group = 'com.github.qlang122'
+
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()
